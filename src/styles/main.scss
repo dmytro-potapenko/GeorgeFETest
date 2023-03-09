@@ -1,0 +1,9 @@
+@import './abstracts/variables';
+@import './base/reset';
+@import './base/base';
+
+// common components
+@import './components/common/spinner';
+
+// layout components
+@import './components/layout/header.scss';

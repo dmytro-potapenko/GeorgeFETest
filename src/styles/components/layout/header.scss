@@ -1,0 +1,12 @@
+header {
+    display: flex;
+    align-items: center;
+    height: 60px;
+    padding: 18px 60px;
+    background-color: $blue;
+    color: $white;
+
+    .logo {
+        font-size: 1.25rem;
+    }
+}
