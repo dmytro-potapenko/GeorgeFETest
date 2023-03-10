@@ -11,7 +11,7 @@ const SearchHeader: FC<SearchHeaderProps> = ({ value, onChange, baseCurrency }) 
     return (
         <div className="sticky-container">
             <div className="search-input-container">
-                <p className="mr-1">SearchHeader</p>
+                <p className="mr-1">Search</p>
                 <InputField value={value} onChange={onChange} />
             </div>
             <div className="items-header">

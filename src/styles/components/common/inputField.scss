@@ -4,7 +4,10 @@
     resize: vertical;
     padding: 1rem;
     border-radius: 2rem;
-    border: 0;
+    border: none;
     background-color: $white;
     height: 40px;
+    &:focus {
+        border: 1px solid $blue;
+    }
 }

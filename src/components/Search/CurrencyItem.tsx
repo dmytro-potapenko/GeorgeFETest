@@ -1,9 +1,9 @@
 import classNames from 'classnames';
 import { FC } from 'react';
-import { Currency, Rate } from '../../types/currency';
-import Visible from '../common/Visible';
+import { ReactComponent as NoImageIcon } from '../../assets/svg/no-image.svg';
+import { EnrichedCurrency } from '../../types/search/currencies';
 
-const getExchangeRate = ({ buy, sell }: Rate, baseCurrency: string): JSX.Element => {
+const getExchangeRate = ({ exchangeRate: { buy, sell } }: EnrichedCurrency, baseCurrency: string): JSX.Element => {
     if (buy && sell)
         return (
             <>
@@ -22,32 +22,57 @@ const getExchangeRate = ({ buy, sell }: Rate, baseCurrency: string): JSX.Element
                 {buy} / - <b>{baseCurrency}</b>
             </>
         );
-    return <>No currency data</>;
+    return <p className="currency-item--no-data">No currency data</p>;
+};
+
+const getCurrencyInfo = ({ isCommon, name, countryName, abbreviation }: EnrichedCurrency): JSX.Element => {
+    if (isCommon) {
+        return <b>{abbreviation}</b>;
+    } else {
+        return (
+            <>
+                {countryName} ({`${name ? name + ' - ' : ''}`}
+                <b>{abbreviation}</b>)
+            </>
+        );
+    }
+};
+
+const getFlag = ({ isCommon, flag }: EnrichedCurrency): JSX.Element => {
+    if (flag) {
+        return <img className={classNames('currency-item__flag', 'mr-1')} src={flag} alt="flag" />;
+    } else {
+        return isCommon ? (
+            <div className={classNames('dumb-flag', 'mr-1')}>
+                <p>
+                    Common
+                    <br />
+                    currency
+                </p>
+            </div>
+        ) : (
+            <div className={classNames('dumb-flag', 'dumb-flag--no-image', 'mr-1')}>
+                <NoImageIcon />
+            </div>
+        );
+    }
 };
 
 type CurrencyItemProps = {
-    data: Currency;
+    data: EnrichedCurrency;
     baseCurrency: string;
 };
 
 const CurrencyItem: FC<CurrencyItemProps> = ({ data, baseCurrency }) => {
-    const { flag, abbreviation, exchangeRate } = data;
+    const { abbreviation } = data;
 
     return (
         <div className={classNames('currency-item', 'mb-1')} key={abbreviation}>
             <div className="currency-item--left">
-                <Visible hidden={!flag}>
-                    <img className={classNames('currency-item__flag', 'mr-1')} src={flag} alt="flag" />
-                </Visible>
-                <p
-                    className={classNames('currency-item__abbreviation', {
-                        'currency-item__abbreviation--no-flag': !flag,
-                    })}
-                >
-                    {abbreviation}
-                </p>
+                {getFlag(data)}
+                <p className="currency-item__info">{getCurrencyInfo(data)}</p>
             </div>
-            <p>{getExchangeRate(exchangeRate, baseCurrency)}</p>
+            <div className={classNames('currency-item--right', 'ml-1')}>{getExchangeRate(data, baseCurrency)}</div>
         </div>
     );
 };

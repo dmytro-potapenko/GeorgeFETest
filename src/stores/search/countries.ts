@@ -1,22 +1,22 @@
 import { action, makeObservable } from 'mobx';
-import { createGet } from '../../service/currency';
-import { Currencies } from '../../types/currency';
+import { createGetAll } from '../../service/countries';
+import { CountriesMap } from '../../types/search/countries';
 import { Nullable } from '../../types/types';
 import { BaseStore } from '../base/baseStore';
 import { NotificationStore } from '../notification';
 
-export class CurrenciesDataStore extends BaseStore<Nullable<Currencies>> {
+export class CountriesStore extends BaseStore<Nullable<CountriesMap>> {
     constructor(private notification: NotificationStore) {
         super(() => null);
 
         makeObservable(this, {
-            get: action,
+            getAll: action,
         });
     }
 
-    get() {
-        const getConfigAction = createGet();
+    getAll() {
+        const getAllAction = createGetAll();
 
-        return this.update(getConfigAction);
+        return this.update(getAllAction);
     }
 }

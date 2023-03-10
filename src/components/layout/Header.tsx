@@ -1,6 +1,6 @@
 const Header = () => (
     <header>
-        <p className="logo">Logo</p>
+        <p className="logo">George FE Test</p>
     </header>
 );
 

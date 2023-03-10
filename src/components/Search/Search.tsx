@@ -3,21 +3,21 @@ import { observer } from 'mobx-react-lite';
 import { FC, useMemo, useState } from 'react';
 import { withFetching } from '../../enhancers/withFetching';
 import { withNoData } from '../../enhancers/withNoData';
-import { Currencies, Currency } from '../../types/currency';
-import { filterCurrencies } from '../../utils/currency';
+import { EnrichedCurrencies, EnrichedCurrency } from '../../types/search/currencies';
+import { filterCurrencies } from '../../utils/currencies';
 import { SpinnerType } from '../common/Spinner/Spinner';
 import CurrencyItem from './CurrencyItem';
 import SearchHeader from './SearchHeader';
 
 type SearchProps = {
-    data: Currencies;
+    data: EnrichedCurrencies;
 };
 
 const Search: FC<SearchProps> = ({ data }) => {
     const { baseCurrency, currencies } = data;
     const [searchValue, setSearchValue] = useState<string>('');
 
-    const filteredCurrencies: Currency[] = useMemo(
+    const filteredCurrencies: EnrichedCurrency[] = useMemo(
         () => filterCurrencies(currencies, searchValue),
         [currencies, searchValue]
     );

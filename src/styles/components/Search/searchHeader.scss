@@ -1,21 +1,37 @@
+$empty-space: calc((100vw - $search-container-width)/2);
+%sticky-subitem {
+    width: 100%;
+    padding: 0 calc($empty-space + .75rem);
+    @media screen and (max-width: calc($search-container-width + 2*$screen-side-padding)) {
+        padding: 0 5rem;
+    }
+}
+
 .sticky-container {
     @extend %box-shadow;
     position: sticky;
     top: 0;
-    margin: -2rem -4rem 0;
+    margin: -$screen-top-bottom-padding 0 0;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
     .search-input-container {
-        height: 60px;
+        @extend %sticky-subitem;
+        height: $header-height;
         background-color: $light-grey;
-        padding: 0 4rem;
         display: flex;
         align-items: center;
     }
+
     .items-header {
+        @extend %sticky-subitem;
         height: 2.5rem;
-        padding: 0 4rem;
         display: flex;
         align-items: center;
         justify-content: space-between;
         background-color: $white;
     }
+
 }

@@ -1,8 +1,8 @@
 header {
     display: flex;
     align-items: center;
-    height: 60px;
-    padding: 1rem 4rem;
+    height: $header-height;
+    padding: 1rem $screen-side-padding;
     background-color: $blue;
     color: $white;
 
