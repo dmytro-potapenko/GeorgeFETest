@@ -9,17 +9,17 @@ type SearchScreenProps = {
 
 const SearchScreen: FC<SearchScreenProps> = ({ store }) => {
     const {
-        currencies: {
-            list: { data: currencies, fetching },
-            list,
+        currenciesStore: {
+            currenciesDataStore: { data: currenciesData, fetching },
+            currenciesDataStore,
         },
     } = store;
 
     useEffect(() => {
-        list.get();
+        currenciesDataStore.get();
     }, []);
 
-    return <Search currencies={currencies} fetching={fetching} fullScreen />;
+    return <Search data={currenciesData} fetching={fetching} />;
 };
 
 const ObservedSearchScreen = observer(SearchScreen);

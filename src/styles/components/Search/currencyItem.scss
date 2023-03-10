@@ -1,0 +1,19 @@
+.currency-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &--left {
+        display: flex;
+        align-items: center;
+    }
+    &__abbreviation {
+        font-size: 1.5rem;
+        &--no-flag {
+            margin-left: 4rem;
+        }
+    }
+    &__flag {
+        height: 2rem;
+        width: 3rem;
+    }
+}

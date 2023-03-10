@@ -1,14 +1,19 @@
 import { FC } from 'react';
-import Spinner, { SpinnerProps } from '../components/common/Spinner';
+import Spinner, { SpinnerType } from '../components/common/Spinner/Spinner';
 
 import { Props } from '../types/types';
 
-export type WithFetching<TProps extends Props> = TProps & Pick<SpinnerProps, 'fetching' | 'fullScreen'>;
+export type WithFetchingProps<TProps extends Props> = TProps & {
+    fetching: boolean;
+};
 
-export function withFetching<P extends Props>(Component: FC<P>): FC<WithFetching<P>> {
-    return ({ fetching, fullScreen, ...rest }: WithFetching<P>) => (
-        <Spinner fetching={fetching} fullScreen={fullScreen}>
-            <Component {...(rest as unknown as P)} />
-        </Spinner>
-    );
+type WithFetchingConfig = {
+    spinnerType?: SpinnerType;
+};
+
+export function withFetching<P extends Props>({ spinnerType }: WithFetchingConfig = {}) {
+    return (Component: FC<P>): FC<WithFetchingProps<P>> => {
+        return ({ fetching, ...rest }: WithFetchingProps<P>) =>
+            fetching ? <Spinner type={spinnerType} /> : <Component {...(rest as unknown as P)} />;
+    };
 }

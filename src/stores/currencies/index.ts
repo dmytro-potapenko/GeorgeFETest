@@ -1,15 +1,15 @@
 import { BaseCumulativeStore } from '../base/baseCumulativeStore';
 import { NotificationStore } from '../notification';
-import { CurrenciesListStore } from './list';
+import { CurrenciesDataStore } from './currenciesData';
 
 export class CurrenciesStore extends BaseCumulativeStore {
-    public readonly list: CurrenciesListStore;
+    public readonly currenciesDataStore: CurrenciesDataStore;
 
     constructor(notification: NotificationStore) {
-        const currenciesList = new CurrenciesListStore(notification);
+        const currenciesDataStore = new CurrenciesDataStore(notification);
 
-        super([currenciesList]);
+        super([currenciesDataStore]);
 
-        this.list = currenciesList;
+        this.currenciesDataStore = currenciesDataStore;
     }
 }

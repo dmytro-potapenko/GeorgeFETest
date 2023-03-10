@@ -4,6 +4,13 @@
 
 // common components
 @import './components/common/spinner';
+@import './components/common/inputField.scss';
 
 // layout components
 @import './components/layout/header.scss';
+@import './components/layout/appLayout.scss';
+
+// components
+@import './components/Search/search.scss';
+@import './components/Search/searchHeader.scss';
+@import './components/Search/currencyItem.scss';

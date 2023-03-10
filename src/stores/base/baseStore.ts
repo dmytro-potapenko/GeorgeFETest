@@ -17,7 +17,6 @@ export abstract class BaseStore<T> {
             fetching: observable,
             error: observable,
             update: action,
-            run: action,
             clear: action,
         });
         this.data = init();
@@ -40,24 +39,6 @@ export abstract class BaseStore<T> {
             this.fetching = false;
             return this.data;
         }
-    }
-
-    public async run<T = unknown>(
-        func: () => Promise<T>,
-        fetching = true,
-        expectedErrorCodes: Nullable<number[]> = null
-    ): Promise<Nullable<T>> {
-        let response: Nullable<T> = null;
-        try {
-            this.error = null;
-            this.fetching = fetching;
-            response = await func();
-        } catch (error) {
-            this.error = genericError(error as AxiosError, expectedErrorCodes);
-        } finally {
-            this.fetching = false;
-        }
-        return response;
     }
 
     public clear(): void {

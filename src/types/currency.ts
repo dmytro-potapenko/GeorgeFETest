@@ -1,6 +1,6 @@
 export type Rate = {
-    buy?: number;
-    sell?: number;
+    buy?: string;
+    sell?: string;
 };
 
 export type Currency = {
@@ -8,4 +8,9 @@ export type Currency = {
     abbreviation: string;
     exchangeRate: Rate;
     flag?: string;
+};
+
+export type Currencies = {
+    baseCurrency: string;
+    currencies: Currency[];
 };

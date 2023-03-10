@@ -1,0 +1,10 @@
+.input-field {
+    @extend %box-shadow;
+    width: 100%;
+    resize: vertical;
+    padding: 1rem;
+    border-radius: 2rem;
+    border: 0;
+    background-color: $white;
+    height: 40px;
+}

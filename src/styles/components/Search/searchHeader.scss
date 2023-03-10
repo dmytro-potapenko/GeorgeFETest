@@ -1,0 +1,21 @@
+.sticky-container {
+    @extend %box-shadow;
+    position: sticky;
+    top: 0;
+    margin: -2rem -4rem 0;
+    .search-input-container {
+        height: 60px;
+        background-color: $light-grey;
+        padding: 0 4rem;
+        display: flex;
+        align-items: center;
+    }
+    .items-header {
+        height: 2.5rem;
+        padding: 0 4rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: $white;
+    }
+}

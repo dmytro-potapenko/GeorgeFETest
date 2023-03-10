@@ -1,12 +1,13 @@
 import { action, makeObservable } from 'mobx';
 import { createGet } from '../../service/currency';
-import { Currency } from '../../types/currency';
+import { Currencies } from '../../types/currency';
+import { Nullable } from '../../types/types';
 import { BaseStore } from '../base/baseStore';
 import { NotificationStore } from '../notification';
 
-export class CurrenciesListStore extends BaseStore<Currency[]> {
+export class CurrenciesDataStore extends BaseStore<Nullable<Currencies>> {
     constructor(private notification: NotificationStore) {
-        super(() => []);
+        super(() => null);
 
         makeObservable(this, {
             get: action,

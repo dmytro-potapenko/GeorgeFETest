@@ -10,15 +10,15 @@ configure({ enforceActions: 'never' });
 export class Store {
     public ownFetching: boolean;
 
-    public readonly currencies: CurrenciesStore;
-    public readonly notification: NotificationStore;
+    public readonly currenciesStore: CurrenciesStore;
+    public readonly notificationStore: NotificationStore;
 
     constructor() {
         this.ownFetching = false;
         // common stores
-        this.notification = new NotificationStore();
+        this.notificationStore = new NotificationStore();
         // app stores
-        this.currencies = new CurrenciesStore(this.notification);
+        this.currenciesStore = new CurrenciesStore(this.notificationStore);
 
         makeObservable(this, {
             ownFetching: observable,
@@ -28,10 +28,10 @@ export class Store {
     }
 
     public get appError(): Nullable<AppError> {
-        return this.currencies.error;
+        return this.currenciesStore.error;
     }
 
     public get fetching(): boolean {
-        return this.ownFetching || this.currencies.fetching;
+        return this.ownFetching || this.currenciesStore.fetching;
     }
 }

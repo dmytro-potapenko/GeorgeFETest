@@ -15,3 +15,9 @@ $font-family: -apple - system,
 // colors
 $blue: #0993f2;
 $white: #ffffff;
+$light-grey: #f4f1f1;
+
+// styling
+%box-shadow {
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.06);
+}
