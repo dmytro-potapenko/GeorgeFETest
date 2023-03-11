@@ -27,7 +27,8 @@ const getExchangeRate = ({ exchangeRate: { buy, sell } }: EnrichedCurrency, base
                 <b>{baseCurrency}</b>
             </>
         );
-    return <p className="currency-item--no-data">No currency data</p>;
+
+    return <p className="currency-item--no-data">No exchange data</p>;
 };
 
 const getCurrencyInfo = ({ isCommon, name, countryName, abbreviation }: EnrichedCurrency): JSX.Element => {
@@ -77,9 +78,7 @@ const CurrencyItem: FC<CurrencyItemProps> = ({ data, baseCurrency }) => {
                 {getFlag(data)}
                 <p className="currency-item__info">{getCurrencyInfo(data)}</p>
             </div>
-            <div className={classNames('currency-item--right', 'ml-1')}>
-                <div>{getExchangeRate(data, baseCurrency)}</div>
-            </div>
+            <div className={classNames('currency-item--right', 'ml-1')}>{getExchangeRate(data, baseCurrency)}</div>
         </div>
     );
 };

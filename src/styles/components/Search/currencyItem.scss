@@ -1,5 +1,5 @@
 .currency-item {
-    @extend %box-shadow;
+    @extend %common-shadow;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -35,25 +35,13 @@
 
     &--right {
         display: flex;
-        justify-content: flex-end;
         align-items: center;
+        justify-content: flex-end;
+        flex-wrap: wrap;
         min-width: 8rem;
-        &>div {
-            display: flex;
-            flex-wrap: wrap;
-            &>p {
-                text-align: right;
-            }
-            &>b {
-                margin-left: .25rem;
-            }
-            @media screen and (max-width: $search-container-width) {
-                flex-direction: column;
-                align-items: flex-end;
-                &>b {
-                    margin-left: 0;
-                }
-            }
+        text-align: right;
+        &>b {
+            margin-left: .25rem;
         }
     }
 

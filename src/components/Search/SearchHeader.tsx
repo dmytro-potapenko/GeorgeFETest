@@ -1,4 +1,5 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import InputField from '../common/InputField';
 
 type SearchHeaderProps = {
@@ -8,10 +9,16 @@ type SearchHeaderProps = {
 };
 
 const SearchHeader: FC<SearchHeaderProps> = ({ value, onChange, baseCurrency }) => {
+    const [queryString, setSearchParams] = useSearchParams();
+
+    useEffect(() => onChange(queryString.get('q') ?? ''), [queryString]);
+
+    const handleChange = (value: string) => setSearchParams({ q: value });
+
     return (
         <div className="sticky-container">
             <div className="search-input-container">
-                <InputField value={value} onChange={onChange} placeholder="Search..." />
+                <InputField value={value} onChange={handleChange} placeholder="Search..." />
             </div>
             <div className="items-header">
                 <p className="currency">Currency</p>

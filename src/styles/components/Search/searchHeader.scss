@@ -11,7 +11,7 @@ $empty-space: calc((100vw - $search-container-width)/2);
 }
 
 .sticky-container {
-    @extend %box-shadow;
+    @extend %common-shadow;
     position: sticky;
     top: 0;
     margin: -$screen-top-bottom-padding 0 0;

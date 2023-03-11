@@ -15,6 +15,7 @@ type SearchProps = {
 
 const Search: FC<SearchProps> = ({ data }) => {
     const { baseCurrency, currencies } = data;
+
     const [searchValue, setSearchValue] = useState<string>('');
 
     const filteredCurrencies: EnrichedCurrency[] = useMemo(

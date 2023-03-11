@@ -1,5 +1,5 @@
 .input-field {
-    @extend %box-shadow;
+    @extend %common-shadow;
     width: 100%;
     resize: vertical;
     padding: 1rem;
@@ -9,10 +9,11 @@
     height: 40px;
 
     &:focus {
-        border: 1px solid $blue;
+        @extend %focus;
     }
 
     &::placeholder {
         color: $grey;
     }
+    
 }
