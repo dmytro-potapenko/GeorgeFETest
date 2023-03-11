@@ -3,4 +3,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @media screen and (max-width: $search-container-width) {
+        padding: $screen-top-bottom-padding-mobile $screen-side-padding-mobile;
+    }
+    
 }

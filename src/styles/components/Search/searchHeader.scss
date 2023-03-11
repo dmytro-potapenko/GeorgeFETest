@@ -5,6 +5,9 @@ $empty-space: calc((100vw - $search-container-width)/2);
     @media screen and (max-width: calc($search-container-width + 2*$screen-side-padding)) {
         padding: 0 5rem;
     }
+    @media screen and (max-width: $search-container-width) {
+        padding: 0 1.5rem;
+    }
 }
 
 .sticky-container {
@@ -16,6 +19,10 @@ $empty-space: calc((100vw - $search-container-width)/2);
     display: flex;
     align-items: center;
     flex-direction: column;
+
+    @media screen and (max-width: $search-container-width) {
+        margin: -$screen-top-bottom-padding-mobile 0 0;
+    }
 
     .search-input-container {
         @extend %sticky-subitem;

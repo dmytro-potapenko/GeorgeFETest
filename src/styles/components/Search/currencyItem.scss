@@ -34,7 +34,27 @@
     }
 
     &--right {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
         min-width: 8rem;
+        &>div {
+            display: flex;
+            flex-wrap: wrap;
+            &>p {
+                text-align: right;
+            }
+            &>b {
+                margin-left: .25rem;
+            }
+            @media screen and (max-width: $search-container-width) {
+                flex-direction: column;
+                align-items: flex-end;
+                &>b {
+                    margin-left: 0;
+                }
+            }
+        }
     }
 
     &--no-data {
@@ -43,11 +63,18 @@
 
     &__info {
         font-size: 1.5rem;
+        @media screen and (max-width: $search-container-width) {
+            font-size: 1rem;
+        }
     }
 
     &__flag {
         height: 2rem;
         width: 3rem;
+        @media screen and (max-width: $search-container-width) {
+            height: 1.5rem;
+            width: 2.25rem;
+        }
     }
 
 }

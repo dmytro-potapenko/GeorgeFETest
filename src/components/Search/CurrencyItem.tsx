@@ -7,19 +7,24 @@ const getExchangeRate = ({ exchangeRate: { buy, sell } }: EnrichedCurrency, base
     if (buy && sell)
         return (
             <>
-                {buy} / {sell} <b>{baseCurrency}</b>
+                <p>
+                    {buy} / {sell}
+                </p>
+                <b>{baseCurrency}</b>
             </>
         );
     if (!buy && sell)
         return (
             <>
-                - / {sell} <b>{baseCurrency}</b>
+                <p>- / {sell}</p>
+                <b>{baseCurrency}</b>
             </>
         );
     if (buy && !sell)
         return (
             <>
-                {buy} / - <b>{baseCurrency}</b>
+                <p>{buy} / -</p>
+                <b>{baseCurrency}</b>
             </>
         );
     return <p className="currency-item--no-data">No currency data</p>;
@@ -72,7 +77,9 @@ const CurrencyItem: FC<CurrencyItemProps> = ({ data, baseCurrency }) => {
                 {getFlag(data)}
                 <p className="currency-item__info">{getCurrencyInfo(data)}</p>
             </div>
-            <div className={classNames('currency-item--right', 'ml-1')}>{getExchangeRate(data, baseCurrency)}</div>
+            <div className={classNames('currency-item--right', 'ml-1')}>
+                <div>{getExchangeRate(data, baseCurrency)}</div>
+            </div>
         </div>
     );
 };

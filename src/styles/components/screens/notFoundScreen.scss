@@ -7,6 +7,10 @@
     height: calc(100vh - $header-height - 2*$screen-top-bottom-padding);
     padding-bottom: 3rem;
 
+    @media screen and (max-width: $search-container-width) {
+        height: calc(100vh - $header-height - 2*$screen-top-bottom-padding-mobile);
+    }
+
     &>p {
         font-size: 2rem;
     }

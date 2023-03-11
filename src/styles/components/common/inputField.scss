@@ -7,7 +7,12 @@
     border: none;
     background-color: $white;
     height: 40px;
+
     &:focus {
         border: 1px solid $blue;
+    }
+
+    &::placeholder {
+        color: $grey;
     }
 }
