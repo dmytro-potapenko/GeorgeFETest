@@ -1,5 +1,5 @@
-import { FC, PropsWithChildren } from 'react';
 import styled, { css } from 'styled-components';
+import { ReactFC } from '../../../types/types';
 import { SpinnerProps, SpinnerType } from './Spinner';
 
 const spinnerTypeToStyles = (type?: SpinnerType): string => {
@@ -14,7 +14,7 @@ const spinnerTypeToStyles = (type?: SpinnerType): string => {
     }
 };
 
-const SpinnerContainerStyled: FC<PropsWithChildren<SpinnerProps>> = styled.div.attrs({
+const SpinnerContainerStyled: ReactFC<SpinnerProps> = styled.div.attrs({
     className: 'spinner-container',
 })<SpinnerProps>`
     ${({ type }) =>

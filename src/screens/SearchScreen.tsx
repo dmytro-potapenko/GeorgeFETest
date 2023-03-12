@@ -1,15 +1,16 @@
 import { observer } from 'mobx-react-lite';
-import { FC, useEffect } from 'react';
+import { useEffect } from 'react';
 import Search from '../components/Search/Search';
 import { Store } from '../stores/store';
+import { ReactFC } from '../types/types';
 
 type SearchScreenProps = {
     store: Store;
 };
 
-const SearchScreen: FC<SearchScreenProps> = ({ store }) => {
+const SearchScreen: ReactFC<SearchScreenProps> = ({ store }) => {
     const {
-        searchStore: { ownFetching, enrichedCurrencies },
+        searchStore: { ownFetching, enrichedCurrencies, error },
         searchStore,
     } = store;
 
@@ -17,7 +18,7 @@ const SearchScreen: FC<SearchScreenProps> = ({ store }) => {
         searchStore.getAll();
     }, []);
 
-    return <Search data={enrichedCurrencies} fetching={ownFetching} />;
+    return <Search data={enrichedCurrencies} fetching={ownFetching} error={error} />;
 };
 
 const ObservedSearchScreen = observer(SearchScreen);

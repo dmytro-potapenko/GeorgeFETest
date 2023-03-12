@@ -1,5 +1,5 @@
-import { FC } from 'react';
 import { ReactComponent as SpinnerIcon } from '../../../assets/svg/spinner.svg';
+import { ReactFC } from '../../../types/types';
 import SpinnerContainerStyled from './SpinnerContainer.styled';
 
 export enum SpinnerType {
@@ -11,7 +11,7 @@ export type SpinnerProps = {
     type?: SpinnerType;
 };
 
-const Spinner: FC<SpinnerProps> = ({ type }) => (
+const Spinner: ReactFC<SpinnerProps> = ({ type }) => (
     <SpinnerContainerStyled type={type}>
         <SpinnerIcon />
     </SpinnerContainerStyled>

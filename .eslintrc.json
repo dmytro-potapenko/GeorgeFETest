@@ -36,10 +36,7 @@
         "@typescript-eslint/ban-ts-comment": 0,
         "no-unsafe-optional-chaining": 0,
         "no-unsafe-finally": 0,
-        "react/display-name": 0
-        // "@typescript-eslint/no-var-requires": 0,
-        // "@typescript-eslint/no-unused-vars": 1,
-        // "no-mixed-spaces-and-tabs": 0,
-        // "cypress/no-assigning-return-values": "error",
+        "react/display-name": 0,
+        "@typescript-eslint/no-unused-vars": 1
     }
 }

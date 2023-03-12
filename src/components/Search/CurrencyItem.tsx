@@ -1,7 +1,7 @@
 import classNames from 'classnames';
-import { FC } from 'react';
 import { ReactComponent as NoImageIcon } from '../../assets/svg/no-image.svg';
 import { EnrichedCurrency } from '../../types/search/currencies';
+import { ReactFC } from '../../types/types';
 
 const getExchangeRate = ({ exchangeRate: { buy, sell } }: EnrichedCurrency, baseCurrency: string): JSX.Element => {
     if (buy && sell)
@@ -69,7 +69,7 @@ type CurrencyItemProps = {
     baseCurrency: string;
 };
 
-const CurrencyItem: FC<CurrencyItemProps> = ({ data, baseCurrency }) => {
+const CurrencyItem: ReactFC<CurrencyItemProps> = ({ data, baseCurrency }) => {
     const { abbreviation } = data;
 
     return (

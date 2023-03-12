@@ -3,7 +3,7 @@ import { pipe } from 'fp-ts/lib/function';
 import { CountriesMap } from '../types/search/countries';
 import { Currencies, EnrichedCurrencies, EnrichedCurrency } from '../types/search/currencies';
 import { CurrenciesExternal } from '../types/search/currenciesExternal';
-import { Optional } from '../types/types';
+import { Nullable, Optional } from '../types/types';
 
 const getAlpha2Code = (abbreviation: string): string => abbreviation.slice(0, 2).toLocaleLowerCase();
 
@@ -39,18 +39,20 @@ export const mapCurrencies = ({ baseCurrency, fx }: CurrenciesExternal): Currenc
     );
 
 export const enrichCurrencies = (
-    { currencies, baseCurrency }: Currencies,
-    countries: CountriesMap
-): EnrichedCurrencies =>
-    pipe(
-        currencies,
-        map(currency => {
-            const countryName: Optional<string> = countries.get(currency.alpha2Code)?.name;
+    currencies: Nullable<Currencies>,
+    countries: Nullable<CountriesMap>
+): Nullable<EnrichedCurrencies> =>
+    currencies && countries
+        ? pipe(
+              currencies.currencies,
+              map(currency => {
+                  const countryName: Optional<string> = countries.get(currency.alpha2Code)?.name;
 
-            return { ...currency, countryName: countryName ?? 'Common currency', isCommon: !countryName };
-        }),
-        currencies => ({ baseCurrency, currencies })
-    );
+                  return { ...currency, countryName: countryName ?? 'Common currency', isCommon: !countryName };
+              }),
+              payload => ({ baseCurrency: currencies.baseCurrency, currencies: payload })
+          )
+        : null;
 
 export const filterCurrencies = (currencies: EnrichedCurrency[], keyWord: string) =>
     currencies.filter(

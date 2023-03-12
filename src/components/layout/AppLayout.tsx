@@ -1,7 +1,7 @@
-import { FC, PropsWithChildren } from 'react';
+import { ReactFC } from '../../types/types';
 import Header from './Header';
 
-const AppLayout: FC<PropsWithChildren> = ({ children }) => (
+const AppLayout: ReactFC = ({ children }) => (
     <div className="app">
         <Header />
         <div className="screen-container">{children}</div>

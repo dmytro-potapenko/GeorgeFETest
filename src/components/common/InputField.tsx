@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { ReactFC } from '../../types/types';
 
 export type InputFieldProps = {
     value?: string;
@@ -6,7 +6,7 @@ export type InputFieldProps = {
     placeholder?: string;
 };
 
-const InputField: FC<InputFieldProps> = ({ value, onChange, placeholder }) => {
+const InputField: ReactFC<InputFieldProps> = ({ value, onChange, placeholder }) => {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => onChange?.(e.target.value);
 
     return (

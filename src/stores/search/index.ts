@@ -1,8 +1,6 @@
 import { pipe } from 'fp-ts/lib/function';
 import { bind, Do, map } from 'fp-ts/lib/Task';
 import { action, makeObservable, observable } from 'mobx';
-import { createGetAll as createGetAllCountries } from '../../service/countries';
-import { createGetAll as createGetAllCurrencies } from '../../service/currencies';
 import { Nullable } from '../../types/types';
 import { enrichCurrencies } from '../../utils/currencies';
 import { BaseCumulativeStore } from '../base/baseCumulativeStore';
@@ -35,8 +33,8 @@ export class SearchStore extends BaseCumulativeStore {
     async getAll() {
         const getAllAction = pipe(
             Do,
-            bind('currencies', () => createGetAllCurrencies()),
-            bind('countries', () => createGetAllCountries()),
+            bind('currencies', () => this.currenciesStore.getAll.bind(this.currenciesStore)),
+            bind('countries', () => this.countriesStore.getAll.bind(this.countriesStore)),
             map(({ currencies, countries }) => enrichCurrencies(currencies, countries))
         );
 
