@@ -3,10 +3,10 @@ $empty-space: calc((100vw - $search-container-width)/2);
     width: 100%;
     padding: 0 calc($empty-space + .75rem);
     @media screen and (max-width: calc($search-container-width + 2*$screen-side-padding)) {
-        padding: 0 5rem;
+        padding: 0 4.75rem;
     }
     @media screen and (max-width: $search-container-width) {
-        padding: 0 1.5rem;
+        padding: 0 1.75rem;
     }
 }
 
