@@ -6,11 +6,12 @@ header {
     background-color: $blue;
     color: $white;
 
-    @media screen and (max-width: $search-container-width) {
+    @media screen and (max-width: $mobile-width) {
         padding: 1rem $screen-side-padding-mobile;
     }
 
     .logo {
         font-size: 1.25rem;
     }
+    
 }

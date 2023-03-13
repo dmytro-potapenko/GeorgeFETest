@@ -2,12 +2,15 @@ $empty-space: calc((100vw - $search-container-width)/2);
 %sticky-subitem {
     width: 100%;
     padding: 0 calc($empty-space + .75rem);
+
     @media screen and (max-width: calc($search-container-width + 2*$screen-side-padding)) {
         padding: 0 4.75rem;
     }
-    @media screen and (max-width: $search-container-width) {
+
+    @media screen and (max-width: $mobile-width) {
         padding: 0 1.75rem;
     }
+    
 }
 
 .sticky-container {
@@ -20,7 +23,7 @@ $empty-space: calc((100vw - $search-container-width)/2);
     align-items: center;
     flex-direction: column;
 
-    @media screen and (max-width: $search-container-width) {
+    @media screen and (max-width: $mobile-width) {
         margin: -$screen-top-bottom-padding-mobile 0 0;
     }
 

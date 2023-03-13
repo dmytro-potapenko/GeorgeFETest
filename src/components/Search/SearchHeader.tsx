@@ -1,5 +1,4 @@
-import { useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchDeepLinking } from '../../hooks/useSearchDeepLinking';
 import { ReactFC } from '../../types/types';
 import InputField from '../common/InputField';
 
@@ -10,14 +9,7 @@ type SearchHeaderProps = {
 };
 
 const SearchHeader: ReactFC<SearchHeaderProps> = ({ value, onChange, baseCurrency }) => {
-    const [queryString, setSearchParams] = useSearchParams();
-
-    useEffect(() => onChange(queryString.get('q') ?? ''), []);
-
-    const handleChange = (value: string) => {
-        onChange(value);
-        setSearchParams({ q: value });
-    };
+    const handleChange = useSearchDeepLinking('q', onChange);
 
     return (
         <div className="sticky-container">

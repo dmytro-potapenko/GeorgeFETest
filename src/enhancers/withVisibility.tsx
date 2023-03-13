@@ -6,6 +6,7 @@ export type WithVisibility<TProps extends Props> = TProps & {
 
 export function withVisibility<P extends Props>() {
     return function (Component: ReactFC<P>): ReactFC<WithVisibility<P>> {
-        return ({ hidden, ...rest }: WithVisibility<P>) => (!hidden ? <Component {...(rest as unknown as P)} /> : null);
+        return ({ hidden, ...rest }: WithVisibility<P>) =>
+            !hidden ? <Component {...(rest as unknown as P)} /> : null;
     };
 }

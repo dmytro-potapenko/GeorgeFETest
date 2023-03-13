@@ -8,7 +8,7 @@ import { EnrichedCurrencies, EnrichedCurrency } from '../../types/search/currenc
 import { ReactFC } from '../../types/types';
 import { filterCurrencies } from '../../utils/currencies';
 import { SpinnerType } from '../common/Spinner/Spinner';
-import CurrencyItem from './CurrencyItem';
+import CurrencyItem from './CurrencyItem/CurrencyItem';
 import SearchHeader from './SearchHeader';
 
 type SearchProps = {
@@ -27,7 +27,11 @@ const Search: ReactFC<SearchProps> = ({ data }) => {
 
     return (
         <div className="search-screen-container">
-            <SearchHeader value={searchValue} onChange={setSearchValue} baseCurrency={baseCurrency} />
+            <SearchHeader
+                value={searchValue}
+                onChange={setSearchValue}
+                baseCurrency={baseCurrency}
+            />
             <div className="search-items-container">
                 {filteredCurrencies.map(item => (
                     <CurrencyItem key={item.abbreviation} data={item} baseCurrency={baseCurrency} />

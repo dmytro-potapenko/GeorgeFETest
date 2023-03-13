@@ -1,17 +1,17 @@
 import { makeAutoObservable } from 'mobx';
 
 export class NotificationStore {
-  defaultError = false;
+    defaultError = false;
 
-  constructor() {
-  	makeAutoObservable(this);
-  }
+    constructor() {
+        makeAutoObservable(this);
+    }
 
-  showDefaultErrorNotif(value: boolean) {
-  	this.defaultError = value;
-  }
+    showDefaultErrorNotif(value: boolean) {
+        this.defaultError = value;
+    }
 
-  clear() {
-  	this.defaultError = false;
-  }
+    clear() {
+        this.defaultError = false;
+    }
 }

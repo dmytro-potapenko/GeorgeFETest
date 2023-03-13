@@ -10,7 +10,13 @@ const InputField: ReactFC<InputFieldProps> = ({ value, onChange, placeholder }) 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => onChange?.(e.target.value);
 
     return (
-        <input className="input-field" type="text" value={value} onChange={handleChange} placeholder={placeholder} />
+        <input
+            className="input-field"
+            type="text"
+            value={value}
+            onChange={handleChange}
+            placeholder={placeholder}
+        />
     );
 };
 

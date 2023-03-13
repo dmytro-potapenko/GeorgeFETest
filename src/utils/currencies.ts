@@ -5,7 +5,8 @@ import { Currencies, EnrichedCurrencies, EnrichedCurrency } from '../types/searc
 import { CurrenciesExternal } from '../types/search/currenciesExternal';
 import { Nullable, Optional } from '../types/types';
 
-const getAlpha2Code = (abbreviation: string): string => abbreviation.slice(0, 2).toLocaleLowerCase();
+const getAlpha2Code = (abbreviation: string): string =>
+    abbreviation.slice(0, 2).toLocaleLowerCase();
 
 const getFlag = (alpha2Code: string): string | undefined => {
     let flag: NodeRequire | undefined;
@@ -48,7 +49,11 @@ export const enrichCurrencies = (
               map(currency => {
                   const countryName: Optional<string> = countries.get(currency.alpha2Code)?.name;
 
-                  return { ...currency, countryName: countryName ?? 'Common currency', isCommon: !countryName };
+                  return {
+                      ...currency,
+                      countryName: countryName ?? 'Common currency',
+                      isCommon: !countryName,
+                  };
               }),
               payload => ({ baseCurrency: currencies.baseCurrency, currencies: payload })
           )

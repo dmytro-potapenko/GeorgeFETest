@@ -18,7 +18,7 @@
         width: 10rem;
     }
 
-    @media screen and (max-width: $search-container-width) {
+    @media screen and (max-width: $mobile-width) {
         height: calc(100vh - $header-height - 2*$screen-top-bottom-padding-mobile);
         &>p {
             font-size: 1.75rem;

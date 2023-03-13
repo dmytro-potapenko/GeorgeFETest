@@ -9,4 +9,8 @@ export const mapCountry = ({ alpha2Code, name }: Country): Country => ({
 });
 
 export const mapCountries = (countries: Country[]): CountriesMap =>
-    new Map(countries.map(country => pipe(country, mapCountry, country => [country.alpha2Code, country])));
+    new Map(
+        countries.map(country =>
+            pipe(country, mapCountry, country => [country.alpha2Code, country])
+        )
+    );
