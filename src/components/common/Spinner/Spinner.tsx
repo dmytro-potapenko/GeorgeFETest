@@ -1,4 +1,5 @@
 import { ReactComponent as SpinnerIcon } from '../../../assets/svg/spinner.svg';
+import { CY_LOCATORS } from '../../../shared/cyLocators';
 import { ReactFC } from '../../../types/types';
 import SpinnerContainerStyled from './SpinnerContainer.styled';
 
@@ -13,7 +14,7 @@ export type SpinnerProps = {
 
 const Spinner: ReactFC<SpinnerProps> = ({ type }) => (
     <SpinnerContainerStyled type={type}>
-        <SpinnerIcon />
+        <SpinnerIcon data-cy-id={CY_LOCATORS.SPINNER} />
     </SpinnerContainerStyled>
 );
 

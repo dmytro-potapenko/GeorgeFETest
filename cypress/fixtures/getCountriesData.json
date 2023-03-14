@@ -1,0 +1,22 @@
+{
+    "successResponse": [
+        {
+            "name": "Fiji",
+            "alpha2Code": "FJ"
+        },
+        {
+            "name": "Mexico",
+            "alpha2Code": "MX"
+        }
+    ],
+    "wrongResponse": [
+        {
+            "name": 123,
+            "alpha2Code": 123
+        }
+    ],
+    "errorResponse": {
+        "statusCode": 404,
+        "message": "This record does not exist"
+    }
+}

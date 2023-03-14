@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import { ReactComponent as NoImageIcon } from '../../../../assets/svg/no-image.svg';
+import { CY_LOCATORS } from '../../../../shared/cyLocators';
 import { EnrichedCurrency } from '../../../../types/search/currencies';
 import { ReactFC } from '../../../../types/types';
 
@@ -9,10 +10,20 @@ type CountryFlagProps = {
 
 const CountryFlag: ReactFC<CountryFlagProps> = ({ currency: { isCommon, flag } }) => {
     if (flag) {
-        return <img className={classNames('left-data__flag', 'mr-1')} src={flag} alt="flag" />;
+        return (
+            <img
+                data-cy-id={CY_LOCATORS.SEARCH_ITEMS_CONTAINER__ITEM__FLAG}
+                className={classNames('left-data__flag', 'mr-1')}
+                src={flag}
+                alt="flag"
+            />
+        );
     } else {
         return isCommon ? (
-            <div className={classNames('left-data__flag', 'left-data__flag--dumb', 'mr-1')}>
+            <div
+                data-cy-id={CY_LOCATORS.SEARCH_ITEMS_CONTAINER__ITEM__FLAG}
+                className={classNames('left-data__flag', 'left-data__flag--dumb', 'mr-1')}
+            >
                 <p>
                     Common
                     <br />
@@ -21,6 +32,7 @@ const CountryFlag: ReactFC<CountryFlagProps> = ({ currency: { isCommon, flag } }
             </div>
         ) : (
             <div
+                data-cy-id={CY_LOCATORS.SEARCH_ITEMS_CONTAINER__ITEM__FLAG}
                 className={classNames(
                     'left-data__flag',
                     'left-data__flag--dumb',

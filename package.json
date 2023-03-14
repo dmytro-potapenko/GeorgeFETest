@@ -34,7 +34,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint src --ext .ts --ext .js",
-    "lint:fix": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\" \"tests/integration/**/*.{js,jsx,ts,tsx}\" && eslint src --ext tests/integration --ext .ts --ext .tsx --ext .js --fix"
+    "lint:fix": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\" \"cypress/**/*.{js,jsx,ts,tsx}\" && eslint src --ext cypress --ext .ts --ext .tsx --ext .js --fix"
   },
   "eslintConfig": {
     "extends": [
@@ -58,6 +58,7 @@
     "@types/react-router-dom": "^5.3.3",
     "@typescript-eslint/eslint-plugin": "^5.54.1",
     "@typescript-eslint/parser": "^5.54.1",
+    "cypress": "^12.7.0",
     "eslint": "^8.35.0",
     "eslint-config-prettier": "^8.7.0",
     "eslint-config-standard-with-typescript": "^34.0.0",

@@ -1,0 +1,18 @@
+export const CY_LOCATORS = {
+    HEADER: 'header',
+    HEADER__LOGO_TEXT: 'header__logo-text',
+    STICKY_CONTAINER: 'sticky-container',
+    STICKY_CONTAINER__SEARCH_INPUT: 'sticky-container__search-input',
+    STICKY_CONTAINER__HEADER: 'sticky-container__header',
+    STICKY_CONTAINER__HEADER__LEFT_TEXT: 'sticky-container__header__left-text',
+    STICKY_CONTAINER__HEADER__RIGHT_TEXT: 'sticky-container__header__right-text',
+    SEARCH_SCREEN: 'search-screen',
+    SEARCH_ITEMS_CONTAINER: 'search-list-container',
+    SEARCH_ITEMS_CONTAINER__ITEM: 'search-list-container__item',
+    SEARCH_ITEMS_CONTAINER__ITEM__FLAG: 'search-list-container__item__flag',
+    SEARCH_ITEMS_CONTAINER__ITEM__INFO: 'search-list-container__item__info',
+    SEARCH_ITEMS_CONTAINER__ITEM__CURRENCY_RATE: 'search-list-container__item__currency-rate',
+    INFO_SCREEN: 'info-screen',
+    INFO_SCREEN__TEXT: 'info-screen__text',
+    SPINNER: 'spinner',
+};

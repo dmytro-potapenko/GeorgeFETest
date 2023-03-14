@@ -4,6 +4,7 @@ import { useMemo, useState } from 'react';
 import { withError } from '../../enhancers/withError';
 import { withFetching } from '../../enhancers/withFetching';
 import { withNoData } from '../../enhancers/withNoData';
+import { CY_LOCATORS } from '../../shared/cyLocators';
 import { EnrichedCurrencies, EnrichedCurrency } from '../../types/search/currencies';
 import { ReactFC } from '../../types/types';
 import { filterCurrencies } from '../../utils/currencies';
@@ -26,13 +27,13 @@ const Search: ReactFC<SearchProps> = ({ data }) => {
     );
 
     return (
-        <div className="search-screen-container">
+        <div data-cy-id={CY_LOCATORS.SEARCH_SCREEN} className="search-screen-container">
             <SearchHeader
                 value={searchValue}
                 onChange={setSearchValue}
                 baseCurrency={baseCurrency}
             />
-            <div className="search-items-container">
+            <div data-cy-id={CY_LOCATORS.SEARCH_ITEMS_CONTAINER} className="search-items-container">
                 {filteredCurrencies.map(item => (
                     <CurrencyItem key={item.abbreviation} data={item} baseCurrency={baseCurrency} />
                 ))}

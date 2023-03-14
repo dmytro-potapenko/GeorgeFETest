@@ -1,4 +1,5 @@
 import { useSearchDeepLinking } from '../../hooks/useSearchDeepLinking';
+import { CY_LOCATORS } from '../../shared/cyLocators';
 import { ReactFC } from '../../types/types';
 import InputField from '../common/InputField';
 
@@ -12,13 +13,23 @@ const SearchHeader: ReactFC<SearchHeaderProps> = ({ value, onChange, baseCurrenc
     const handleChange = useSearchDeepLinking('q', onChange);
 
     return (
-        <div className="sticky-container">
+        <div data-cy-id={CY_LOCATORS.STICKY_CONTAINER} className="sticky-container">
             <div className="search-input-container">
-                <InputField value={value} onChange={handleChange} placeholder="Search..." />
+                <InputField
+                    data-cy-id={CY_LOCATORS.STICKY_CONTAINER__SEARCH_INPUT}
+                    value={value}
+                    onChange={handleChange}
+                    placeholder="Search..."
+                />
             </div>
-            <div className="items-header">
-                <p className="currency">Currency</p>
-                <p>
+            <div data-cy-id={CY_LOCATORS.STICKY_CONTAINER__HEADER} className="items-header">
+                <p
+                    data-cy-id={CY_LOCATORS.STICKY_CONTAINER__HEADER__LEFT_TEXT}
+                    className="currency"
+                >
+                    Currency
+                </p>
+                <p data-cy-id={CY_LOCATORS.STICKY_CONTAINER__HEADER__RIGHT_TEXT}>
                     Buy / Sell <b>{baseCurrency}</b>
                 </p>
             </div>

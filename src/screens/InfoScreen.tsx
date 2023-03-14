@@ -1,11 +1,14 @@
 import { pipe } from 'fp-ts/lib/function';
 import { ReactComponent as GearsIcon } from '../assets/svg/gears.svg';
 import { withProps } from '../enhancers/withProps';
+import { CY_LOCATORS } from '../shared/cyLocators';
 import { ReactFC } from '../types/types';
 
 export const InfoScreen: ReactFC = ({ children }) => (
-    <div className="info-screen">
-        <p className="mb-1">{children}</p>
+    <div data-cy-id={CY_LOCATORS.INFO_SCREEN} className="info-screen">
+        <p data-cy-id={CY_LOCATORS.INFO_SCREEN__TEXT} className="mb-1">
+            {children}
+        </p>
         <GearsIcon />
     </div>
 );
