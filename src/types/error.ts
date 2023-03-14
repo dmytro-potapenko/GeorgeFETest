@@ -1,6 +1,5 @@
 export enum AppErrorType {
     General = 'General',
-    NotFound = 'NotFound',
 }
 
 type ApiErrorData = {

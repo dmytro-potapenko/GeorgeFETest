@@ -23,18 +23,14 @@ export abstract class BaseStore<T> {
         this.initialData = init();
     }
 
-    public async update(
-        func: () => Promise<T>,
-        fetching = true,
-        expectedErrorCodes: Nullable<number[]> = null
-    ): Promise<T> {
+    public async update(func: () => Promise<T>, fetching = true): Promise<T> {
         try {
             this.error = null;
             this.fetching = fetching;
             const data = await func();
             this.data = data;
         } catch (error) {
-            this.error = genericError(error as AxiosError, expectedErrorCodes);
+            this.error = genericError(error as AxiosError);
         } finally {
             this.fetching = false;
             return this.data;

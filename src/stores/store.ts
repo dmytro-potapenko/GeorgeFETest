@@ -2,7 +2,6 @@ import { computed, configure, makeObservable, observable } from 'mobx';
 
 import { AppError } from '../types/error';
 import { Nullable } from '../types/types';
-import { NotificationStore } from './notification';
 import { SearchStore } from './search';
 
 configure({ enforceActions: 'never' });
@@ -11,14 +10,11 @@ export class Store {
     public ownFetching: boolean;
 
     public readonly searchStore: SearchStore;
-    public readonly notificationStore: NotificationStore;
 
     constructor() {
         this.ownFetching = false;
-        // common stores
-        this.notificationStore = new NotificationStore();
         // app stores
-        this.searchStore = new SearchStore(this.notificationStore);
+        this.searchStore = new SearchStore();
 
         makeObservable(this, {
             ownFetching: observable,

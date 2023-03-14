@@ -1,10 +1,10 @@
 export type RateExternal = {
-    buy: number;
-    indicator: number;
-    middle: number;
-    sell: number;
+    buy?: number;
+    indicator?: number;
+    middle?: number;
+    sell?: number;
     // meta
-    lastModified: string;
+    lastModified?: string;
 };
 
 export type FxItem = {

@@ -4,7 +4,7 @@ export type Rate = {
 };
 
 export type Currency = {
-    name?: string;
+    name: string;
     abbreviation: string;
     exchangeRate: Rate;
     alpha2Code: string;

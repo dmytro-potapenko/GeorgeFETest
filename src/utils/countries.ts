@@ -1,10 +1,10 @@
 import { pipe } from 'fp-ts/lib/function';
 import { CountriesMap, Country } from '../types/search/countries';
 
-const parseName = (name: string) => name.split(/,|\(/)[0];
+export const extractOnlyName = (name: string) => name.split(/,|\(/)[0].trim();
 
 export const mapCountry = ({ alpha2Code, name }: Country): Country => ({
-    name: parseName(name),
+    name: extractOnlyName(name),
     alpha2Code: alpha2Code.toLocaleLowerCase(),
 });
 

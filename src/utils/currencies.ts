@@ -5,10 +5,10 @@ import { Currencies, EnrichedCurrencies, EnrichedCurrency } from '../types/searc
 import { CurrenciesExternal } from '../types/search/currenciesExternal';
 import { Nullable, Optional } from '../types/types';
 
-const getAlpha2Code = (abbreviation: string): string =>
-    abbreviation.slice(0, 2).toLocaleLowerCase();
+export const getAlpha2Code = (abbreviation: string): string =>
+    abbreviation.length >= 2 ? abbreviation.slice(0, 2).toLocaleLowerCase() : '';
 
-const getFlag = (alpha2Code: string): string | undefined => {
+export const getFlag = (alpha2Code: string): string | undefined => {
     let flag: NodeRequire | undefined;
     try {
         // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -16,13 +16,13 @@ const getFlag = (alpha2Code: string): string | undefined => {
     } catch (_) {
         flag = undefined;
     }
-    return flag ? flag.toString() : undefined;
+    return flag?.toString();
 };
 
 export const mapCurrencies = ({ baseCurrency, fx }: CurrenciesExternal): Currencies =>
     pipe(
         fx,
-        map(({ nameI18N, currency, exchangeRate }) => {
+        map(({ nameI18N = '', currency, exchangeRate }) => {
             const alpha2Code = getAlpha2Code(currency);
 
             return {

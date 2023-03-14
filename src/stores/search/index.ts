@@ -4,7 +4,6 @@ import { action, makeObservable, observable } from 'mobx';
 import { Nullable } from '../../types/types';
 import { enrichCurrencies } from '../../utils/currencies';
 import { BaseCumulativeStore } from '../base/baseCumulativeStore';
-import { NotificationStore } from '../notification';
 import { EnrichedCurrencies } from './../../types/search/currencies';
 import { CountriesStore } from './countries';
 import { CurrenciesStore } from './currencies';
@@ -15,9 +14,9 @@ export class SearchStore extends BaseCumulativeStore {
     public readonly currenciesStore: CurrenciesStore;
     public readonly countriesStore: CountriesStore;
 
-    constructor(notification: NotificationStore) {
-        const currenciesStore = new CurrenciesStore(notification);
-        const countriesStore = new CountriesStore(notification);
+    constructor() {
+        const currenciesStore = new CurrenciesStore();
+        const countriesStore = new CountriesStore();
 
         super([currenciesStore, countriesStore]);
 
