@@ -1,5 +1,4 @@
 /* eslint-disable */
-
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
 const currenciesApiBaseUrl = process.env.REACT_APP_CURRENCIES_API_BASE_URL ?? '';

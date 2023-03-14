@@ -18,8 +18,10 @@ const CountryFlag: ReactFC<CountryFlagProps> = ({ currency: { isCommon, flag } }
                 alt="flag"
             />
         );
-    } else {
-        return isCommon ? (
+    }
+
+    if (!flag && isCommon) {
+        return (
             <div
                 data-cy-id={CY_LOCATORS.SEARCH_ITEMS_CONTAINER__ITEM__FLAG}
                 className={classNames('left-data__flag', 'left-data__flag--dumb', 'mr-1')}
@@ -30,20 +32,22 @@ const CountryFlag: ReactFC<CountryFlagProps> = ({ currency: { isCommon, flag } }
                     currency
                 </p>
             </div>
-        ) : (
-            <div
-                data-cy-id={CY_LOCATORS.SEARCH_ITEMS_CONTAINER__ITEM__FLAG}
-                className={classNames(
-                    'left-data__flag',
-                    'left-data__flag--dumb',
-                    'left-data__flag--no-image',
-                    'mr-1'
-                )}
-            >
-                <NoImageIcon />
-            </div>
         );
     }
+
+    return (
+        <div
+            data-cy-id={CY_LOCATORS.SEARCH_ITEMS_CONTAINER__ITEM__FLAG}
+            className={classNames(
+                'left-data__flag',
+                'left-data__flag--dumb',
+                'left-data__flag--no-image',
+                'mr-1'
+            )}
+        >
+            <NoImageIcon />
+        </div>
+    );
 };
 
 export default CountryFlag;

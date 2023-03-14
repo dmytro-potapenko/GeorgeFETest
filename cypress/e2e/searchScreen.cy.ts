@@ -1,3 +1,6 @@
+// eslint-disable-next-line spaced-comment
+///  <reference types="cypress" />
+
 import { CY_LOCATORS } from '../../src/shared/cyLocators';
 import { getCyIdSelector } from '../utils';
 

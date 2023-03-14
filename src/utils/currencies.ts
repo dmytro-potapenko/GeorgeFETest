@@ -10,24 +10,25 @@ export const getAlpha2Code = (abbreviation: string): string =>
 
 export const getFlag = (alpha2Code: string): string | undefined => {
     let flag: NodeRequire | undefined;
+
     try {
-        // eslint-disable-next-line @typescript-eslint/no-var-requires
-        flag = require(`../assets/flags/${alpha2Code}.png`) as unknown as NodeRequire;
+        flag = require(`../assets/flags/${alpha2Code}.png`);
     } catch (_) {
         flag = undefined;
     }
+
     return flag?.toString();
 };
 
 export const mapCurrencies = ({ baseCurrency, fx }: CurrenciesExternal): Currencies =>
     pipe(
         fx,
-        map(({ nameI18N = '', currency, exchangeRate }) => {
+        map(({ nameI18N, currency, exchangeRate }) => {
             const alpha2Code = getAlpha2Code(currency);
 
             return {
-                name: nameI18N,
-                abbreviation: currency,
+                name: nameI18N?.trim() ?? '',
+                abbreviation: currency.trim(),
                 exchangeRate: {
                     buy: exchangeRate?.buy?.toFixed(2),
                     sell: exchangeRate?.sell?.toFixed(2),
@@ -62,8 +63,7 @@ export const enrichCurrencies = (
 export const filterCurrencies = (currencies: EnrichedCurrency[], keyWord: string) =>
     currencies.filter(
         ({ abbreviation, name, countryName }) =>
-            (abbreviation.toLocaleLowerCase().includes(keyWord.toLocaleLowerCase()) ||
-                name?.toLocaleLowerCase().includes(keyWord.toLocaleLowerCase()) ||
-                countryName?.toLocaleLowerCase().includes(keyWord.toLocaleLowerCase())) &&
-            !!abbreviation.trim()
+            abbreviation.toLocaleLowerCase().includes(keyWord.toLocaleLowerCase()) ||
+            name?.toLocaleLowerCase().includes(keyWord.toLocaleLowerCase()) ||
+            countryName?.toLocaleLowerCase().includes(keyWord.toLocaleLowerCase())
     );
