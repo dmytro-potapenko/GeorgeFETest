@@ -1,6 +1,6 @@
 {
-  "short_name": "George FE Test",
-  "name": "Currencies app",
+  "short_name": "Currencies app",
+  "name": "Simple currencies app",
   "icons": [
     {
       "src": "favicon.ico",
