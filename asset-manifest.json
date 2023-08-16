@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/GeorgeFETest/static/css/main.a4d21036.css",
-    "main.js": "/GeorgeFETest/static/js/main.8163e0c2.js",
-    "static/js/545.e4ae9ff6.chunk.js": "/GeorgeFETest/static/js/545.e4ae9ff6.chunk.js",
-    "static/media/gears.svg": "/GeorgeFETest/static/media/gears.c03f6c172300a045cda2fd9d842eca5a.svg",
-    "static/media/spinner.svg": "/GeorgeFETest/static/media/spinner.b5ba5349e51dee3037fdfef2d5ca9a69.svg",
-    "index.html": "/GeorgeFETest/index.html",
-    "static/media/no-image.svg": "/GeorgeFETest/static/media/no-image.e2d71f627f3cf74d300c978c46d28a87.svg",
-    "main.a4d21036.css.map": "/GeorgeFETest/static/css/main.a4d21036.css.map",
-    "main.8163e0c2.js.map": "/GeorgeFETest/static/js/main.8163e0c2.js.map",
-    "545.e4ae9ff6.chunk.js.map": "/GeorgeFETest/static/js/545.e4ae9ff6.chunk.js.map"
+    "main.css": "/simple-react-app/static/css/main.a4d21036.css",
+    "main.js": "/simple-react-app/static/js/main.5649b823.js",
+    "static/js/545.098b60c9.chunk.js": "/simple-react-app/static/js/545.098b60c9.chunk.js",
+    "static/media/gears.svg": "/simple-react-app/static/media/gears.c03f6c172300a045cda2fd9d842eca5a.svg",
+    "static/media/spinner.svg": "/simple-react-app/static/media/spinner.b5ba5349e51dee3037fdfef2d5ca9a69.svg",
+    "index.html": "/simple-react-app/index.html",
+    "static/media/no-image.svg": "/simple-react-app/static/media/no-image.e2d71f627f3cf74d300c978c46d28a87.svg",
+    "main.a4d21036.css.map": "/simple-react-app/static/css/main.a4d21036.css.map",
+    "main.5649b823.js.map": "/simple-react-app/static/js/main.5649b823.js.map",
+    "545.098b60c9.chunk.js.map": "/simple-react-app/static/js/545.098b60c9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a4d21036.css",
-    "static/js/main.8163e0c2.js"
+    "static/js/main.5649b823.js"
   ]
 }
