@@ -13,7 +13,7 @@ module.exports = function (app) {
             secure: true,
             logLevel: 'debug',
             pathRewrite: {
-                '^/currencies': '/',
+                '^/currencies/': '/',
             },
         })
     );
@@ -25,7 +25,7 @@ module.exports = function (app) {
             secure: true,
             logLevel: 'debug',
             pathRewrite: {
-                '^/countries': '/',
+                '^/countries/': '/',
             },
         })
     );

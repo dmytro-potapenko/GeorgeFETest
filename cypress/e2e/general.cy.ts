@@ -12,7 +12,7 @@ describe('general spec', () => {
 
         cy.get(getCyIdSelector(CY_LOCATORS.HEADER))
             .get(getCyIdSelector(CY_LOCATORS.HEADER__LOGO_TEXT))
-            .should('contain', 'George FE Test');
+            .should('contain', 'Simple currencies app');
     });
 
     it('TC_NUMBER: should display a spinner while data is loading', () => {
